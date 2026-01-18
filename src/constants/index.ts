@@ -1,47 +1,71 @@
-import { Subject } from "@/types";
+import { GraduationCap, School } from "lucide-react";
 
-export const DEPARTMENTS = ["CS", "Math", "PHYS", "BMS"];
+export const USER_ROLES = {
+  STUDENT: "student",
+  TEACHER: "teacher",
+  ADMIN: "admin",
+};
+
+export const ROLE_OPTIONS = [
+  {
+    value: USER_ROLES.STUDENT,
+    label: "Student",
+    icon: GraduationCap,
+  },
+  {
+    value: USER_ROLES.TEACHER,
+    label: "Teacher",
+    icon: School,
+  },
+];
+
+export const DEPARTMENTS = [
+  "Computer Science",
+  "Mathematics",
+  "Physics",
+  "Chemistry",
+  "Biology",
+  "English",
+  "History",
+  "Geography",
+  "Economics",
+  "Business Administration",
+  "Engineering",
+  "Psychology",
+  "Sociology",
+  "Political Science",
+  "Philosophy",
+  "Education",
+  "Fine Arts",
+  "Music",
+  "Physical Education",
+  "Law",
+] as const;
 
 export const DEPARTMENT_OPTIONS = DEPARTMENTS.map((dept) => ({
   value: dept,
   label: dept,
 }));
 
-export const MOCK_SUBJECTS: Subject[] = [
-  {
-    id: 1,
-    code: "CS101",
-    name: "Introduction to Computer Science",
-    department: "CS",
-    description:
-      "Foundational course covering programming fundamentals, algorithms, and computational thinking for beginners.",
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: 2,
-    code: "MATH201",
-    name: "Linear Algebra",
-    department: "Math",
-    description:
-      "Study of vectors, matrices, eigenvalues, and applications in various fields of science and engineering.",
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: 3,
-    code: "PHYS301",
-    name: "Quantum Physics",
-    department: "PHYS",
-    description:
-      "Advanced course exploring the principles of quantum theory, wave functions, and subatomic particle behavior.",
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: 4,
-    code: "ANA301",
-    name: "HUman Histology",
-    department: "BMS",
-    description:
-      "Understanding the human structure from the lowest level the cells tothe highest.",
-    createdAt: new Date().toISOString(),
-  },
+export const MAX_FILE_SIZE = 3 * 1024 * 1024; // 3MB in bytes
+export const ALLOWED_TYPES = [
+  "image/png",
+  "image/jpeg",
+  "image/jpg",
+  "image/webp",
 ];
+
+export const CLOUDINARY_UPLOAD_URL = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
+export const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+
+// export const BACKEND_BASE_URL = "http://localhost:8000/api/";
+export const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+
+export const BASE_URL = import.meta.env.VITE_API_URL;
+export const ACCESS_TOKEN_KEY = import.meta.env.VITE_ACCESS_TOKEN_KEY;
+export const REFRESH_TOKEN_KEY = import.meta.env.VITE_REFRESH_TOKEN_KEY;
+
+export const REFRESH_TOKEN_URL = `${BASE_URL}/refresh-token`;
+
+export const CLOUDINARY_UPLOAD_PRESET = import.meta.env
+  .VITE_CLOUDINARY_UPLOAD_PRESET;
