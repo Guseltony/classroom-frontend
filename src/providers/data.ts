@@ -5,8 +5,11 @@ import { BACKEND_BASE_URL } from "@/constants";
 
 // CreateResponse, GetOneResponse
 
-console.log(BACKEND_BASE_URL);
-console.log("importenv", import.meta.env);
+if (!BACKEND_BASE_URL) {
+  throw new Error(
+    "BACKEND_BASE_URL is not configured. Please set VITE_BACKEND_BASE_URL in your .env file.",
+  );
+}
 
 const options: CreateDataProviderOptions = {
   getList: {
@@ -59,7 +62,7 @@ const options: CreateDataProviderOptions = {
     },
 
     mapResponse: async (response) => {
-      const payload: ListResponse = await response.json();
+      const payload: ListResponse = await response.clone().json();
 
       console.log("map:", payload);
       return payload.data ?? [];
