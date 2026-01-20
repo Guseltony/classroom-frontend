@@ -54,6 +54,12 @@ declare global {
   }
 }
 
+export interface CloudinaryWidget {
+  open: () => void;
+  close: () => void;
+  destroy: () => void;
+}
+
 export interface UploadWidgetValue {
   url: string;
   publicId: string;
