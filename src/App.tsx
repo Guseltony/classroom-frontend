@@ -20,6 +20,7 @@ import { dataProvider } from "./providers/data";
 import ClassesList from "./pages/classes/list";
 import ClassesCreate from "./pages/classes/create";
 
+
 function App() {
   return (
     <BrowserRouter>
