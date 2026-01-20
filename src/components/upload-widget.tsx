@@ -62,9 +62,17 @@ function UploadWidget({
       return true;
     };
 
-    if (initializeWidget()) return;
+    const MAX_ATTEMPTS = 20; // 10 seconds max
+    let attempts = 0;
 
+    if (initializeWidget()) return;
     const intervalId = window.setInterval(() => {
+      attempts++;
+      if (attempts >= MAX_ATTEMPTS) {
+        console.warn("Cloudinary widget failed to load after timeout");
+        window.clearInterval(intervalId);
+        return;
+      }
       if (initializeWidget()) {
         window.clearInterval(intervalId);
       }
