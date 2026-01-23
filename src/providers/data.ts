@@ -3,6 +3,7 @@ import { createDataProvider, CreateDataProviderOptions } from "@refinedev/rest";
 import { CreateResponse, ListResponse } from "@/types";
 import { BACKEND_BASE_URL } from "@/constants";
 import { HttpError } from "@refinedev/core";
+import { GetOneResponse } from "../types/index";
 
 // CreateResponse, GetOneResponse
 
@@ -107,14 +108,14 @@ const options: CreateDataProviderOptions = {
     },
   },
 
-  // getOne: {
-  //   getEndpoint: ({ resource, id }) => `${resource}/${id}`,
+  getOne: {
+    getEndpoint: ({ resource, id }) => `${resource}/${id}`,
 
-  //   mapResponse: async (response) => {
-  //     const json: GetOneResponse = await response.json();
-  //     return json.data ?? {};
-  //   },
-  // },
+    mapResponse: async (response) => {
+      const json: GetOneResponse = await response.json();
+      return json.data ?? {};
+    },
+  },
 };
 
 const { dataProvider } = createDataProvider(BACKEND_BASE_URL, options);
