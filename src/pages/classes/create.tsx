@@ -25,13 +25,11 @@ import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb";
 
 import { Textarea } from "@/components/ui/textarea";
 import { useBack, useList } from "@refinedev/core";
-// import { Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { classSchema } from "@/lib/schema";
-// import UploadWidget from "@/components/upload-widget";
+import UploadWidget from "@/components/upload-widget";
 import { Subject, User } from "@/types";
 import z from "zod";
-import UploadWidget from "@/components/upload-widget";
-import { Loader2 } from "lucide-react";
 
 const ClassesCreate = () => {
   const back = useBack();
@@ -54,7 +52,7 @@ const ClassesCreate = () => {
     control,
   } = form;
 
-  // const bannerPublicId = form.watch("bannerCldPubId");
+  const bannerPublicId = form.watch("bannerCldPubId");
 
   const onSubmit = async (values: z.infer<typeof classSchema>) => {
     try {
@@ -92,8 +90,6 @@ const ClassesCreate = () => {
 
   const subjects = subjectsQuery.data?.data || [];
   const subjectsLoading = subjectsQuery.isLoading;
-
-  const bannerPublicId = form.watch("bannerCldPubId");
 
   return (
     <CreateView className="class-view">
@@ -164,6 +160,7 @@ const ClassesCreate = () => {
                     </FormItem>
                   )}
                 />
+
                 <FormField
                   control={control}
                   name="name"
@@ -308,6 +305,7 @@ const ClassesCreate = () => {
                     )}
                   />
                 </div>
+
                 <FormField
                   control={control}
                   name="description"
@@ -326,7 +324,9 @@ const ClassesCreate = () => {
                     </FormItem>
                   )}
                 />
+
                 <Separator />
+
                 <Button type="submit" size="lg" className="w-full">
                   {isSubmitting ? (
                     <div className="flex gap-1">
