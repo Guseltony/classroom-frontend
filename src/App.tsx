@@ -24,7 +24,6 @@ import SubjectsList from "./pages/subjects/list";
 import { Layout } from "./components/refine-ui/layout/layout";
 import SubjectsCreate from "./pages/subjects/create";
 import SubjectsShow from "./pages/subjects/show";
-// import Dashboard from "./pages/dashboard";
 
 import { dataProvider } from "./providers/data";
 import ClassesList from "./pages//classes/list";
@@ -41,6 +40,7 @@ import FacultyShow from "./pages/faculty/show";
 import EnrollmentsCreate from "./pages/enrollments/create";
 import EnrollmentsJoin from "./pages/enrollments/join";
 import EnrollmentConfirm from "./pages/enrollments/confirm";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (
