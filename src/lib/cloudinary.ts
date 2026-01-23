@@ -32,7 +32,7 @@ export const bannerPhoto = (imageCldPubId: string, name: string) => {
       // Text overlay with name
       .overlay(
         source(
-          text(name, new TextStyle("roboto", 42).fontWeight("bold")).textColor(
+          text(name, new TextStyle("roboto", 100).fontWeight("bold")).textColor(
             "white"
           )
         ).position(
